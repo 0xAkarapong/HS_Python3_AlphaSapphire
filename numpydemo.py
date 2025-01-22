@@ -1,66 +1,82 @@
+import pandas as pd
 import numpy as np
 
-vector_1d = np.array([1, 2, 3, 4, 5])
-print("1D Vector:")
-print(vector_1d)
+# 1D Vector using Pandas Series
+vector_1d_pd = pd.Series([1, 2, 3, 4, 5])
+print("Pandas 1D Vector (Series):")
+print(vector_1d_pd)
 
-matrix_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
-print("\n2D Matrix:")
-print(matrix_2d)
+# 2D Matrix using Pandas DataFrame
+matrix_2d_pd = pd.DataFrame([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+print("\nPandas 2D Matrix (DataFrame):")
+print(matrix_2d_pd)
 
-arange_vector = np.arange(0, 10, 2)
-print("\nArange Vector:")
-print(arange_vector)
+# Arange Vector using Pandas Series with numpy arange
+arange_vector_pd = pd.Series(np.arange(0, 10, 2))
+print("\nPandas Arange Vector (Series):")
+print(arange_vector_pd)
 
-zeros_matrix = np.zeros((2, 3))
-print("\nZeros Matrix:")
-print(zeros_matrix)
+# Zeros Matrix using Pandas DataFrame with numpy zeros
+zeros_matrix_pd = pd.DataFrame(np.zeros((2, 3)))
+print("\nPandas Zeros Matrix (DataFrame):")
+print(zeros_matrix_pd)
 
-ones_vector = np.ones(4)
-print("\nOnes Vector:")
-print(ones_vector)
+# Ones Vector using Pandas Series with numpy ones
+ones_vector_pd = pd.Series(np.ones(4))
+print("\nPandas Ones Vector (Series):")
+print(ones_vector_pd)
 
-random_matrix = np.random.rand(3, 2)
-print("\nRandom Matrix:")
-print(random_matrix)
+# Random Matrix using Pandas DataFrame with numpy random
+random_matrix_pd = pd.DataFrame(np.random.rand(3, 2))
+print("\nPandas Random Matrix (DataFrame):")
+print(random_matrix_pd)
 
-vector_a = np.array([10, 20, 30])
-vector_b = np.array([1, 2, 3])
-addition_result = vector_a + vector_b
-print("\nVector Addition:")
-print(addition_result)
+# Vector Addition using Pandas Series
+vector_a_pd = pd.Series([10, 20, 30])
+vector_b_pd = pd.Series([1, 2, 3])
+addition_result_pd = vector_a_pd + vector_b_pd
+print("\nPandas Vector Addition (Series):")
+print(addition_result_pd)
 
+# Scalar Multiplication using Pandas Series
 scalar = 5
-scalar_multiplication_result = vector_a * scalar
-print("\nScalar Multiplication:")
-print(scalar_multiplication_result)
+scalar_multiplication_result_pd = vector_a_pd * scalar
+print("\nPandas Scalar Multiplication (Series):")
+print(scalar_multiplication_result_pd)
 
-matrix_x = np.array([[1, 2], [3, 4]])
-matrix_y = np.array([[5, 6], [7, 8]])
-matrix_multiplication_result = matrix_x @ matrix_y
-print("\nMatrix Multiplication:")
-print(matrix_multiplication_result)
+# Matrix Multiplication using Pandas DataFrame (using to_numpy for matrix op)
+matrix_x_pd = pd.DataFrame([[1, 2], [3, 4]])
+matrix_y_pd = pd.DataFrame([[5, 6], [7, 8]])
+matrix_multiplication_result_pd = pd.DataFrame(matrix_x_pd.to_numpy() @ matrix_y_pd.to_numpy())
+print("\nPandas Matrix Multiplication (DataFrame):")
+print(matrix_multiplication_result_pd)
 
-transposed_matrix = matrix_x.T
-print("\nTransposed Matrix:")
-print(transposed_matrix)
+# Transposed Matrix using Pandas DataFrame
+transposed_matrix_pd = matrix_x_pd.T
+print("\nPandas Transposed Matrix (DataFrame):")
+print(transposed_matrix_pd)
 
-sum_of_elements = np.sum(matrix_2d)
-print("\nSum of Matrix Elements:")
-print(sum_of_elements)
+# Sum of Matrix Elements using Pandas DataFrame
+sum_of_elements_pd = matrix_2d_pd.sum().sum() # sum() twice to sum all elements in DataFrame
+print("\nPandas Sum of Matrix Elements (DataFrame):")
+print(sum_of_elements_pd)
 
-mean_value = np.mean(vector_1d)
-print("\nMean Value of Vector:")
-print(mean_value)
+# Mean Value of Vector using Pandas Series
+mean_value_pd = vector_1d_pd.mean()
+print("\nPandas Mean Value of Vector (Series):")
+print(mean_value_pd)
 
-max_value = np.max(matrix_2d)
-print("\nMax Value of Matrix:")
-print(max_value)
+# Max Value of Matrix using Pandas DataFrame
+max_value_pd = matrix_2d_pd.max().max() # max() twice to get max of all elements in DataFrame
+print("\nPandas Max Value of Matrix (DataFrame):")
+print(max_value_pd)
 
-reshaped_matrix = vector_1d.reshape(5, 1)
-print("\nReshaped Matrix:")
-print(reshaped_matrix)
+# Reshaped Matrix using Pandas DataFrame (reshape numpy array then to DataFrame)
+reshaped_matrix_pd = pd.DataFrame(vector_1d_pd.values.reshape(5, 1))
+print("\nPandas Reshaped Matrix (DataFrame):")
+print(reshaped_matrix_pd)
 
-sliced_vector = vector_1d[1:4]
-print("\nSliced Vector:")
-print(sliced_vector)
+# Sliced Vector using Pandas Series
+sliced_vector_pd = vector_1d_pd[1:4]
+print("\nPandas Sliced Vector (Series):")
+print(sliced_vector_pd)
